@@ -20,7 +20,6 @@ const SignIn = () => {
     });
 
     const data = await res.json();
-    console.log(data);
     if (!data || data.status === 400) {
       window.alert("INVALID DETAILS");
     } else {

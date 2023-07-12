@@ -11,7 +11,6 @@ function Community() {
       const response = await fetch('/residents');
       const data = await response.json();
       setResidents(data);
-      setFilteredResidents(data); // Initialize the filtered residents with all residents initially
     } catch (error) {
       console.error('Error fetching residents:', error);
     }
@@ -34,9 +33,6 @@ function Community() {
   return (
     <div className="wrapper2">
       <div className="main">
-        <div className="navbar2">
-          <div className="logo">BLUELEARN</div>
-        </div>
         <div className="info">
           <div className="head">
             <h3>
@@ -52,13 +48,17 @@ function Community() {
               />
               <input type="submit" value="SEARCH" />
             </form>
-            <ul style={{ marginTop: '100px', display: 'flex' }}>
-              {filteredResidents.map((resident) => (
-                <li key={resident.id} type="none" style={{ marginLeft: '450px' }}>
-                  Name: {resident.username}, Email: {resident.email}, Country: {resident.country}
-                </li>
-              ))}
-            </ul>
+            {filteredResidents.length > 0 ? (
+              <ul style={{ marginTop: '100px', display: 'flex', flexDirection:"column", marginBottom:"2rem" }}>
+                {filteredResidents.map((resident) => (
+                  <li key={resident.id} type="none" style={{ textAlign:"center" }}>
+                    Name: {resident.username}, Email: {resident.email}, Country: {resident.country}
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p>Search Your country</p>
+            )}
           </div>
         </div>
       </div>

@@ -54,7 +54,6 @@ function SignUp() {
       }),
     });
     const data = await res.json();
-    console.log(data);
     if (!data || data.error === "Email already exists") {
       window.alert("Email already exists");
       setUser({ ...user, email: "" });

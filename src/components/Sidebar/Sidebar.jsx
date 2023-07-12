@@ -16,13 +16,18 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import Main from '../../pages/Main/Main';
 import Movers from '../../pages/Movers/Movers';
 import Visa from '../../pages/Visa/Visa';
 import Community from '../../pages/Community/Community';
 import Rentals from '../../pages/Rentals/Rentals';
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import BookIcon from '@mui/icons-material/Book';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import PeopleIcon from '@mui/icons-material/People';
+import HouseIcon from '@mui/icons-material/House';
+import ChatIcon from '@mui/icons-material/Chat';
+import Chat from '../Chat/Chat'
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -93,7 +98,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 export default function Sidebar() {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [menudata, setMenudata] = useState("Main");
+  const [menudata, setMenudata] = useState("Dashboard");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -133,7 +138,7 @@ export default function Sidebar() {
         </DrawerHeader>
         <Divider />
         <List>
-          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => setMenudata("Main")}>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => setMenudata("Dashboard")}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -148,9 +153,9 @@ export default function Sidebar() {
                   justifyContent: 'center',
                 }}
               >
-                <MailIcon />
+                <DashboardIcon/>
               </ListItemIcon>
-              <ListItemText primary="Main" sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary="Dashboard" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding sx={{ display: 'block' }} onClick={() => setMenudata("Movers")}>
@@ -168,7 +173,7 @@ export default function Sidebar() {
                   justifyContent: 'center',
                 }}
               >
-                <MailIcon />
+                <LocalShippingIcon/>
               </ListItemIcon>
               <ListItemText primary="Movers" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -188,7 +193,7 @@ export default function Sidebar() {
                   justifyContent: 'center',
                 }}
               >
-                <MailIcon />
+                <BookIcon/>
               </ListItemIcon>
               <ListItemText primary="Visa" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -208,7 +213,7 @@ export default function Sidebar() {
                   justifyContent: 'center',
                 }}
               >
-                <MailIcon />
+                <PeopleIcon/>
               </ListItemIcon>
               <ListItemText primary="Community" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
@@ -228,19 +233,40 @@ export default function Sidebar() {
                   justifyContent: 'center',
                 }}
               >
-                <MailIcon />
+                <HouseIcon/>
               </ListItemIcon>
               <ListItemText primary="Rentals" sx={{ opacity: open ? 1 : 0 }} />
+            </ListItemButton>
+          </ListItem>
+          <ListItem disablePadding sx={{ display: 'block' }} onClick={() => setMenudata("Chat")}>
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? 'initial' : 'center',
+                px: 2.5,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  minWidth: 0,
+                  mr: open ? 3 : 'auto',
+                  justifyContent: 'center',
+                }}
+              >
+                <ChatIcon/>
+              </ListItemIcon>
+              <ListItemText primary="Chat" sx={{ opacity: open ? 1 : 0 }} />
             </ListItemButton>
           </ListItem>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-        {menudata === "Main" && <Main />}
+        {menudata === "Dashboard" && <Main />}
         {menudata === "Movers" && <Movers />}
         {menudata === "Visa" && <Visa />}
         {menudata === "Community" && <Community />}
         {menudata === "Rentals" && <Rentals />}
+        {menudata === "Chat" && <Chat />}
       </Box>
     </Box>
   );

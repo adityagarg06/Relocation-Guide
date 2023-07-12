@@ -1,14 +1,17 @@
 .about {
     padding: 8rem;
     background: #0A2558;
+    text-align: center;
   }
   
-  h1 {
+.about h1 {
     text-align: center;
     color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
   }
   
-hr{
+.about hr{
   height: 2px;
   margin: 30px auto;
   width: 50%;
@@ -18,3 +21,8 @@ hr{
   text-align: center;
 }
 
+@media screen and (max-width: 480px) {
+  .about h1 {
+    font-size: 20px;
+  }
+}

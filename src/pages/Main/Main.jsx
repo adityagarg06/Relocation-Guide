@@ -49,10 +49,10 @@ function Main() {
               />
               <div className="indicator">
                 <ul>
-                  <li>UserName: {userData?.username} </li>
-                  <li>Email Id: {userData?.email} </li>
-                  <li>Country: {userData?.country} </li>
-                  <li>Role: {userData?.option}</li>
+                  <li className='dash'>UserName: {userData?.username} </li>
+                  <li className='dash'>Email: {userData?.email} </li>
+                  <li className='dash'>Country: {userData?.country} </li>
+                  <li className='dash'>Role: {userData?.option}</li>
                 </ul>
               </div>
             </div>
